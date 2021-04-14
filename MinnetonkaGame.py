@@ -21,73 +21,47 @@ def game_over(reason):
   # ask player to play again or not by activating play_again() function
   play_again()
 
-# diamond room
-def diamond_room():
-  # some prompts
-  print("\nYou are now in a room filled with diamonds!")
-  print("And there is a door too!")
-  print("What would you do? (1 or 2)")
-  print("1). Take some diamonds and go through the door.")
-  print("2). Just go through the door.")
-
-  # take input()
-  answer = input(">")
-  
-  if answer == "1":
-    # the player is dead, call game_over() function with the "reason"
-    game_over("They were cursed diamonds! The moment you touched it, the building collapsed, and you die!")
-  elif answer == "2":
-    # the player won the game
-    print("\nNice, you're are an honest man! Congrats you win the game!")
-    # activate play_again() function
-    play_again()
-  else:
-    # call game_over() with "reason"
-    game_over("Go and learn how to type a number.")
-
-# monster room
-def monster_room():
+# big room
+def big_room():
   # some prompts
   # '\n' is to print the line in a new line
-  print("\nNow you entered the room of a monster!")
-  print("The monster is sleeping.\nBehind the monster, there is another door. What would you do? (1 or 2)")
-  print("1). Go through the door silently.")
-  print("2). Kill the monster and show your courage!")
+  print("\nYou are in a very large room. There are two teenagers here.")
+  print("They are playing Minecraft on a larget TV. You see a hallway and some stairs.")
+  print("What would you do? (1, 2 or 3)")
+  print("1). Ask if you can play Minecraft")
+  print("2). Go up the stairs")
+  print("3). Go through the hallway")
 
   # take input()
   answer = input(">")
 
   if answer == "1":
-    # lead him to the diamond_room()
-    diamond_room()
+    game_over("They ask you to show your skill by timing you on a Minecraft speed run. You fail miserably as you have never played before.")
   elif answer == "2":
-    # the player is dead, call game_over() with "reason"
-    game_over("The monster was hungry, he/it ate you.")
+    # TODO: top_of_stairs_landing()
+    game_over("TBD")
   else:
-    # game_over() with "reason"
-    game_over("Go and learn how to type a number.")
+    big_room()
 
-# bear room
-def bear_room():
+# shop room
+def shop_room():
   # give some prompts
   # '\n' is to print the line in a new line
-  print("\nThere is a bear here.")
-  print("Behind the bear is another door.")
-  print("The bear is eating tasty honey!")
+  print("\nThis room appears to an extension of the garage. Theare are shop tools here.")
+  print("You see a table saw and a lathe as well as a closed door.")
   print("What would you do? (1 or 2)")
-  print("1). Take the honey.")
-  print("2). Taunt the bear.")
+  print("1). Play with the shop tools.")
+  print("2). Go through the door.")
 
   # take input()
   answer = input(">")
   
   if answer == "1":
     # the player is dead!
-    game_over("The bear killed you.")
+    game_over("You forgot to put on your safty glasses an are blinded by flying chips of metal.")
   elif answer == "2":
-    # lead him to the diamond_room()
-    print("\nYour Good time, the bear moved from the door. You can go through it now!")
-    diamond_room()
+    # lead him to the start()
+    start()
   else:
     # else call game_over() function with the "reason" argument
     game_over("Don't you know how to type a number?")
@@ -107,32 +81,84 @@ def outside_room():
   answer = input(">")
   
   if answer == "1":
-    # the player is dead!
     game_over("Ahh. That feels really realy nice.  You fall asleep in the hot tub.")
   elif answer == "2":
-    # TODO: Go to the deck_room
     print("\nYou are now on the deck. Enjoy the view.")
+    deck_room()
+  else:
+    # else call game_over() function with the "reason" argument
+    game_over("Don't you know how to type a number?")
+
+# deck room
+def deck_room():
+  # give some prompts
+  # '\n' is to print the line in a new line
+  print("\nYou are now on a second story deck.")
+  print("There is a table with a sun shade and a meal ready to eat.")
+  print("You can see some stairs leading to the back yard and a sliding glass door.")
+  print("What would you like do? (1, 2 or 3)")
+  print("1). Sit down in the shade and eat the meal.")
+  print("2). Walk down the stairs to the back yard.")
+  print("3). Go through the sliding glass doors.")
+
+  # take input()
+  answer = input(">")
+  
+  if answer == "1":
+    game_over("Nice! Brats and hamburgers just off the grill. Delicious.")
+  elif answer == "2":
+    outside_room()
+  elif answer == "3":
+    bird_room()
+  else:
+    # else call game_over() function with the "reason" argument
+    game_over("Don't you know how to type a number?")
+
+# bird room
+def bird_room():
+  # give some prompts
+  # '\n' is to print the line in a new line
+  print("\nYou are now inside the house.")
+  print("You see two parakeets flying around in the room with you, as well as a piano.")
+  print("You can see a sliding glass door, and an entry way to the kitchen.")
+  print("What would you like do? (1, 2 or 3)")
+  print("1). Play the piano.")
+  print("2). Go through to the kitchen.")
+  print("3). Go through the sliding glass doors.")
+
+  # take input()
+  answer = input(">")
+  
+  if answer == "1":
+    game_over("The birds hate your playing! They are mad and squawking at you to stop.")
+  elif answer == "2":
+    # TODO: kitchen_room()
+    # kitchen_room()
+    game_over("TBD")
+  elif answer == "3":
+    deck_room()
   else:
     # else call game_over() function with the "reason" argument
     game_over("Don't you know how to type a number?")
 
 def start():
   # give some prompts.
-  print("\nYou are standing in Schmalz Haus. It is a room in Minnetonka.")
+  print("\nYou are standing in Schmalz Haus. It is a room in a house on a suburban street in Minnetonka called Brandbury Walk.")
+  print("\nYou see several computer monitors and a soldering iron in front of you.")
   print("There is a closed door to your left, a sliding door stright ahead, and an open door to your right that looks like it leads to a hallway? (l, s or r)")
   
   # convert the player's input() to lower_case
   answer = input(">").lower()
 
   if "l" in answer:
-    # if player typed "left" or "l" lead him to bear_room()
-    bear_room()
+    # if player typed "left" or "l" lead him to shop_room()
+    shop_room()
   elif "s" in answer:
     # else if player typed "straight" or "s" lead him to outside_room()
     outside_room()
   elif "r" in answer:
-    # else if player typed "right" or "r" lead him to monster_room()
-    monster_room()
+    # else if player typed "right" or "r" lead him to big_room()
+    big_room()
   else:
     # else call game_over() function with the "reason" argument
     game_over("Don't you know how to type something properly?")

@@ -149,25 +149,28 @@ def bird_room():
         game_over("Don't you know how to type a number?")
 
 
+
 def start():
     # give some prompts.
-    print("\nYou are standing in Schmalz Haus.")
-    print("It is a room in a house on a suburban street in Minnetonka called Brandbury Walk.")
+    print("\nYou are standing in Schmalz Haus. It is a room in a house on a suburban street " +
+        "in Minnetonka called Brandbury Walk.")
     print("\nYou see several computer monitors and a soldering iron in front of you.")
-    print("There is a closed door to your left, a sliding door straight ahead, "
-          + "\nand an open door to your right that looks like it leads to a hallway? (l, s or r)")
+    print("There is a closed door to your left, a sliding door straight ahead, and an open door " +
+        "\nto your right that looks like it leads to a hallway? (1, 2 or 3)")
+    print("1) Closed door to left.")
+    print("2) Sliding door straight ahead.")
+    print("3) Open door leading to hallway.")
 
-    # convert the player's input() to lower_case
-    answer = input(">").lower()
+    answer = input(">")
 
-    if "l" in answer:
-        # if player typed "left" or "l" lead him to shop_room()
+    if answer == "1":
+        # if player typed "1" lead him to shop_room()
         shop_room()
-    elif "s" in answer:
-        # else if player typed "straight" or "s" lead him to outside_room()
+    elif answer == "2":
+        # else if player typed "2" lead him to outside_room()
         outside_room()
-    elif "r" in answer:
-        # else if player typed "right" or "r" lead him to big_room()
+    elif answer == "3":
+        # else if player typed "3" lead him to big_room()
         big_room()
     else:
         # else call game_over() function with the "reason" argument

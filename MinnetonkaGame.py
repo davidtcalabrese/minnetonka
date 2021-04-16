@@ -162,7 +162,7 @@ def start():
     # else if player typed "2" lead him to outside_room()
     outside_room()
   elif answer == "3":
-    # else if player typed "3"lead him to big_room()
+    # else if player typed "3" lead him to big_room()
     big_room()
   else:
     # else call game_over() function with the "reason" argument

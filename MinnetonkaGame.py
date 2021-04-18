@@ -1,3 +1,5 @@
+import time
+
 
 # function to ask play again or not
 def play_again():
@@ -41,10 +43,42 @@ def big_room():
         game_over("They ask you to show your skill by timing you on a Minecraft speed run. " +
                   "You fail miserably as you have never played before.")
     elif answer == "2":
-        # TODO: top_of_stairs_landing()
+        top_of_stairs_landing()
         game_over("TBD")
     else:
         big_room()
+
+
+# top of stairs
+def top_of_stairs_landing():
+    # give some prompts
+    # '\n' is to print the line in a new line
+    print("\nYou are in a living room. There is a woman speaking French. Did you teleport to France?")
+    # pause for two seconds - building suspense
+    time.sleep(2)
+    print("No. That's just Emily - an American who speaks French.")
+    time.sleep(2)
+    print("You walk over to say hi and you step on a lego. Ow!")
+    time.sleep(2)
+    print("Your foot is killing you! Do you take an aspirin or have a beer?")
+    print("1) Take an aspirin.")
+    print("2) Dull the pain with beer.")
+
+    # take input()
+    answer = input(">")
+
+    if answer == "1":
+        game_over("That aspirin was tainted with cyanide. Too bad. ")
+    elif answer == "2":
+        fridge()
+    else:
+        # else call game_over() function with the "reason" argument
+        game_over("Don't you know how to type a number?")
+
+
+# at fridge
+def fridge():
+    pass
 
 
 # shop room
@@ -149,14 +183,13 @@ def bird_room():
         game_over("Don't you know how to type a number?")
 
 
-
 def start():
     # give some prompts.
     print("\nYou are standing in Schmalz Haus. It is a room in a house on a suburban street " +
-        "in Minnetonka called Brandbury Walk.")
+          "in Minnetonka called Brandbury Walk.")
     print("\nYou see several computer monitors and a soldering iron in front of you.")
     print("There is a closed door to your left, a sliding door straight ahead, and an open door " +
-        "\nto your right that looks like it leads to a hallway? (1, 2 or 3)")
+          "\nto your right that looks like it leads to a hallway? (1, 2 or 3)")
     print("1) Closed door to left.")
     print("2) Sliding door straight ahead.")
     print("3) Open door leading to hallway.")

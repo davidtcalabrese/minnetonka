@@ -67,7 +67,7 @@ def top_of_stairs_landing():
     answer = input(">")
 
     if answer == "1":
-        game_over("That aspirin was tainted with cyanide. Too bad. ")
+        game_over("TBD")
     elif answer == "2":
         fridge()
     else:

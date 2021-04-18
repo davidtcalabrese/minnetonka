@@ -44,7 +44,6 @@ def big_room():
                   "You fail miserably as you have never played before.")
     elif answer == "2":
         top_of_stairs_landing()
-        game_over("TBD")
     else:
         big_room()
 

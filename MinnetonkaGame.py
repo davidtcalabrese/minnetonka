@@ -189,7 +189,7 @@ def bird_room():
 
 def start():
     # initialize player object
-    player_object = Player("false")
+    player_object = Player(False)
 
     # give some prompts.
     print("\nYou are standing in Schmalz Haus. It is a room in a house on a suburban street " +

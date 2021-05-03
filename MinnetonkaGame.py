@@ -95,10 +95,11 @@ def fridge():
         game_over("That's too many beers lightweight! You've passed out on the floor.")
     elif 3 >= beers > 0:
         player_object.tipsy = True
-        print(f"That hit the spot! You stumble back downstairs.")
+        print("That hit the spot! You stumble back downstairs.")
         time.sleep(2)
         big_room()
-
+    elif beers == 0:
+        print("You said you wanted beer, you need to take at least one.")
     else:
         # else call game_over() function with the "reason" argument
         game_over("Don't you know how to type a number?")

@@ -1,6 +1,11 @@
 import time
 
 
+class Player:
+    def __init__(self, tipsy):
+        self.tipsy = tipsy
+
+
 # function to ask play again or not
 def play_again():
     print("Do you want to play again? (y or n)")
@@ -183,6 +188,9 @@ def bird_room():
 
 
 def start():
+    # initialize player object
+    player_object = Player(False)
+
     # give some prompts.
     print("\nYou are standing in Schmalz Haus. It is a room in a house on a suburban street " +
           "in Minnetonka called Brandbury Walk.")

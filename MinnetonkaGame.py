@@ -6,6 +6,10 @@ class Player:
         self.tipsy = tipsy
 
 
+# initialize player object
+player_object = Player(False)
+
+
 # function to ask play again or not
 def play_again():
     print("Do you want to play again? (y or n)")
@@ -58,12 +62,12 @@ def top_of_stairs_landing():
     # give some prompts
     # '\n' is to print the line in a new line
     print("\nYou are in a living room. There is a woman speaking French. Did you teleport to France?")
-    # pause for two seconds - building suspense
-    time.sleep(2)
+    # pause for one second - building suspense
+    #time.sleep(1)
     print("No. That's just Emily - an American who speaks French.")
-    time.sleep(2)
+    #time.sleep(1)
     print("You walk over to say hi and you step on a lego. Ow!")
-    time.sleep(2)
+    #time.sleep(1)
     print("Your foot is killing you! Do you take an aspirin or have a beer?")
     print("1) Take an aspirin.")
     print("2) Dull the pain with beer.")
@@ -82,7 +86,22 @@ def top_of_stairs_landing():
 
 # at fridge
 def fridge():
-    pass
+    print("You hobble over to the fridge, cursing.")
+    time.sleep(1)
+    print("How many beers should you have?")
+    beers = int(input(">"))
+
+    if beers > 3:
+        game_over("That's too many beers lightweight! You've passed out on the floor.")
+    elif 3 >= beers > 0:
+        player_object.tipsy = True
+        print(f"That hit the spot! You stumble back downstairs.")
+        time.sleep(2)
+        big_room()
+
+    else:
+        # else call game_over() function with the "reason" argument
+        game_over("Don't you know how to type a number?")
 
 
 # shop room
@@ -188,9 +207,6 @@ def bird_room():
 
 
 def start():
-    # initialize player object
-    player_object = Player(False)
-
     # give some prompts.
     print("\nYou are standing in Schmalz Haus. It is a room in a house on a suburban street " +
           "in Minnetonka called Brandbury Walk.")
